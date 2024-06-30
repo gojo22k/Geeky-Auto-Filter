@@ -18,13 +18,13 @@ def is_enabled(value, default):
 
 # Bot information
 SESSION = environ.get('SESSION', 'TechVJBot')
-API_ID = int(environ.get('API_ID', '22182189'))
-API_HASH = environ.get('API_HASH', '5e7c4088f8e23d0ab61e29ae11960bf5')
+API_ID = int(environ.get('API_ID', '28548034'))
+API_HASH = environ.get('API_HASH', 'a6924b8c909eb39dd1bb50f9973bb75b')
 BOT_TOKEN = environ.get('BOT_TOKEN', "")
 
 # Bot settings
 CACHE_TIME = int(environ.get('CACHE_TIME', 1800))
-PICS = (environ.get('PICS', 'https://graph.org/file/ce1723991756e48c35aa1.jpg')).split() #SAMPLE PIC
+PICS = (environ.get('PICS', 'https://telegra.ph/file/47f1bd32b9ad6628789d1.jpg https://telegra.ph/file/158c43ee13d4ecc447326.jpg https://telegra.ph/file/6efcb1713f4ec0b732dd7.jpg https://telegra.ph/file/ba5cc7d0e579f265cc583.jpg https://telegra.ph/file/78a8442a5825f89b943aa.jpg https://telegra.ph/file/c4efeef762714b560ee20.jpg https://telegra.ph/file/8061b95372bc0cc535461.jpg https://telegra.ph/file/3b987c67257445d23cf93.jpg https://telegra.ph/file/c49537bce92de03f02aa9.jpg')).split() #SAMPLE PIC
 NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/b69af2db776e4e85d21ec.jpg")
 MELCOW_VID = environ.get("MELCOW_VID", "https://t.me/How_To_Open_Linkl")
 SPELL_IMG = environ.get("SPELL_IMG", "https://te.legra.ph/file/15c1ad448dfe472a5cbb8.jpg")
