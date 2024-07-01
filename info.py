@@ -52,8 +52,8 @@ DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in enviro
 
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://figega1249:owYb9NfJAuBRFFFV@cluster0.wfrsxjp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-DATABASE_NAME = environ.get('DATABASE_NAME', "GEEKY AUTO FILTER")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'GEEKY AUTO FILTER')
+DATABASE_NAME = environ.get('DATABASE_NAME', "GEEKYAUTOFILTER")
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'GEEKYAUTOFILTER')
 
 # Premium And Referal Settings
 PREMIUM_AND_REFERAL_MODE = bool(environ.get('PREMIUM_AND_REFERAL_MODE', True)) # Set Ture Or False
