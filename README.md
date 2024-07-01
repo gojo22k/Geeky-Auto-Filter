@@ -2,7 +2,7 @@
   <img src="https://graph.org/file/e0de7cc0eb5939aafccc9.jpg" alt="Auto-Filter-Bot Logo">
 </p>
 <h1 align="center">
-  VJ FILTER BOT
+  Auto FILTER BOT
 </h1>
 
 ![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Welcome+To+Auto+Filter+Bot!)
