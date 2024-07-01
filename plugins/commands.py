@@ -1527,5 +1527,7 @@ async def purge_requests(client, message):
 
 @Client.on_message(filters.command("donate") & filters.private & filters.user(ADMINS))
 async def Donate(client, message):
-    await message 
-    caption=script.DONATE_TXT
+    await message.reply_photo(
+        photo=PAYMENT_QR,
+        caption=DONATE_TXT
+    )
