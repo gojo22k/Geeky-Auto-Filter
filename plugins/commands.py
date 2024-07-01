@@ -1524,3 +1524,8 @@ async def purge_requests(client, message):
             parse_mode=enums.ParseMode.MARKDOWN,
             disable_web_page_preview=True
         )
+
+@Client.on_message(filters.command("donate") & filters.private & filters.user(ADMINS))
+async def Donate(client, message):
+    await message 
+    caption=script.DONATE_TXT
