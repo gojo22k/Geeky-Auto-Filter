@@ -1529,5 +1529,5 @@ async def purge_requests(client, message):
 async def Donate(client, message):
     await message.reply_photo(
         photo=PAYMENT_QR,
-        caption=DONATE_TXT
+        caption=script.DONATE_TXT
     )
