@@ -1531,3 +1531,10 @@ async def Donate(client, message):
         photo=PAYMENT_QR,
         caption=script.DONATE_TXT
     )
+
+
+@Client.on_message(filters.command("group_rules") & filters.private & filters.user(ADMINS))
+async def Group_Rules(client, message):
+    await message.reply_text(
+        caption=script.GROUP_RULES
+    )
