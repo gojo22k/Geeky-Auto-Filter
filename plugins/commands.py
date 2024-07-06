@@ -1548,7 +1548,7 @@ async def topsearch_callback(client, callback_query):
     
     limit = 20  # Default limit or get from somewhere else if needed
 
-    top_messages = await mdb.get_top_messages(limit)
+    top_messages = await imdb.get_top_messages(limit)
 
     # Use a set to ensure unique messages (case insensitive).
     seen_messages = set()
@@ -1595,7 +1595,7 @@ async def trendlist(client, message):
             return  # Exit the function if the argument is not a valid integer
 
     try:
-        top_messages = await mdb.get_top_messages(limit)
+        top_messages = await imdb.get_top_messages(limit)
     except Exception as e:
         await message.reply_text(f"Error retrieving messages: {str(e)}")
         return  # Exit the function if there is an error retrieving messages
