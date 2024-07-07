@@ -47,7 +47,7 @@ async def start(client, message):
     if len(message.command) != 2:
         if PREMIUM_AND_REFERAL_MODE == True:
             buttons = [[
-                InlineKeyboardButton('⤬ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ⤬', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
+                InlineKeyboardButton('Top Searching 🔍', callback_data="topsearch")
             ],[
                 InlineKeyboardButton('Eᴀʀɴ Mᴏɴᴇʏ 💸', callback_data="shortlink_info"),
                 InlineKeyboardButton('⌬ Mᴏᴠɪᴇ Gʀᴏᴜᴘ', url=GRP_LNK)
@@ -1572,7 +1572,7 @@ async def topsearch_callback(client, callback_query):
     await callback_query.answer()
 
 @Client.on_message(filters.command('top'))
-async def top(_, message):
+async def top(client, message):
 
     def is_alphanumeric(string):
         return bool(re.match('^[a-zA-Z0-9 ]*$', string))
