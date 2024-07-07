@@ -1532,14 +1532,6 @@ async def Donate(client, message):
         caption=script.DONATE_TXT
     )
 
-
-@Client.on_message(filters.command("group_rules") & filters.private & filters.user(ADMINS))
-async def Group_Rules(client, message):
-    await message.reply_text(
-        text=script.GROUP_RULES
-    )
-
-
 @Client.on_callback_query(filters.regex("topsearch"))
 async def topsearch_callback(client, callback_query):
     
@@ -1578,6 +1570,42 @@ async def topsearch_callback(client, callback_query):
     await callback_query.message.reply_text("<b>Tᴏᴘ Sᴇᴀʀᴄʜᴇs Oғ Tʜᴇ Dᴀʏ 👇</b>", reply_markup=reply_markup)
     await callback_query.answer()
 
+@Client.on_message(filters.command('top'))
+async def top(_, message):
+
+    def is_alphanumeric(string):
+        return bool(re.match('^[a-zA-Z0-9 ]*$', string))
+    
+    try:
+        limit = int(message.command[1])
+    except (IndexError, ValueError):
+        limit = 20
+
+    top_messages = await mdb.get_top_messages(limit)
+
+    # Use a set to ensure unique messages (case sensitive).
+    seen_messages = set()
+    truncated_messages = []
+
+    for msg in top_messages:
+        # Check if message already exists in the set (case sensitive)
+        if msg.lower() not in seen_messages and is_alphanumeric(msg):
+            seen_messages.add(msg.lower())
+            
+            if len(msg) > 35:
+                truncated_messages.append(msg[:35 - 3])
+            else:
+                truncated_messages.append(msg)
+
+    keyboard = []
+    for i in range(0, len(truncated_messages), 2):
+        row = truncated_messages[i:i+2]
+        keyboard.append(row)
+    
+    reply_markup = ReplyKeyboardMarkup(keyboard, one_time_keyboard=True, resize_keyboard=True, placeholder="Most searches of the day")
+    await message.reply_text(f"<b>Tᴏᴘ Sᴇᴀʀᴄʜᴇs Oғ Tʜᴇ Dᴀʏ 👇</b>", reply_markup=reply_markup)
+
+    
 @Client.on_message(filters.command('trendlist'))
 async def trendlist(client, message):
     def is_alphanumeric(string):
@@ -1628,3 +1656,11 @@ async def trendlist(client, message):
     reply_text = f"<b>Top {len(truncated_messages)} Tʀᴀɴᴅɪɴɢ ᴏғ ᴛʜᴇ ᴅᴀʏ 👇:</b>\n\n{formatted_list}"
     
     await message.reply_text(reply_text)
+
+@Client.on_message(filters.command("group_rules") & filters.private & filters.user(ADMINS))
+async def Group_Rules(client, message):
+    await message.reply_text(
+        text=script.GROUP_RULES
+    )
+
+
