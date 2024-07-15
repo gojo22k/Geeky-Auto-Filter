@@ -1657,5 +1657,9 @@ async def Group_Rules(client, message):
     await message.reply_text(
         text=script.GROUP_RULES
     )
-
+@Client.on_message(filters.command("help") & filters.private & filters.user(ADMINS))
+async def Help(client, message):
+    await message.reply_text(
+        text=script.COMMANDS_TXT
+    )
 
