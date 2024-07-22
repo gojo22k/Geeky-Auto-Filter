@@ -24,7 +24,7 @@ hachoir
 python-decouple 
 ffmpeg
 youtube_search
-pymongo[srv]==3.12.3 
+pymongo
 motor==3.5.1
 marshmallow 
 umongo
